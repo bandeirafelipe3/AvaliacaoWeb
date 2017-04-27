@@ -1,0 +1,17 @@
+{% extends 'menu/base.html' %}
+
+{% block content %}
+	<div class="post">
+		{% if prato.published_date %}
+			<div class="date">
+				{{ prato.published_date }}
+			</div>
+		{% endif %}
+		<a class="btn btn-default" href="{% url 'editar_receita' pk=prato.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<h1>{{ prato.nome }}</h1>
+		<p>{{ prato.ingredientes|linebreaksbr }}</p>
+		<p>{{ prato.preparo|linebreaksbr }}</p>
+		<p>{{ prato.pessoas|linebreaksbr }}</p>
+		<p>{{ prato.tempodepreparo|linebreaksbr }}</p>
+	</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'menu/base.html' %}
+
+{% block content %}
+	
+	{% for prato in pratos %}
+		<div class="post">
+			<h1><a href="{% url 'receita_detalhe' pk=prato.pk %}">{{prato.nome}}</a></h1>{% csrf_token %}
+			<p>publicado: {{prato.published_date}}</p>
+			<p>Ingredientes: {{prato.ingredientes|linebreaksbr}}</p>
+			<p>Serve {{prato.pessoas|linebreaksbr}} pessoas</p>
+			<p>Tempo de preparo: {{prato.tempodepreparo|linebreaksbr}}</p>
+		</div>
+	{% endfor %}
+{% endblock content %}
